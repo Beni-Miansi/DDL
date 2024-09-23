@@ -1,0 +1,51 @@
+CREATE TABLE CLIENT (
+    ClientID INT PRIMARY KEY,
+    ClientName VARCHAR2(50),
+    ClientAddress VARCHAR2(100),
+    ClientPhone VARCHAR2(15)
+);
+
+
+
+CREATE TABLE PRODUIT (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR2(50),
+    Price DECIMAL(10, 2),
+    Stock INT
+);
+
+
+
+CREATE TABLE ORDERS (
+    OrderID INT PRIMARY KEY,
+    ClientID INT,
+    ProductID INT,
+    Quantity INT,
+    FOREIGN KEY (ClientID) REFERENCES CLIENT(ClientID),
+    FOREIGN KEY (ProductID) REFERENCES PRODUIT(ProductID)
+);
+
+
+
+CREATE TABLE ORDERS (
+    OrderID INT PRIMARY KEY,
+    ClientID INT,
+    ProductID INT,
+    Quantity INT,
+    FOREIGN KEY (ClientID) REFERENCES CLIENT(ClientID),
+    FOREIGN KEY (ProductID) REFERENCES PRODUIT(ProductID)
+);
+
+
+
+
+ALTER TABLE PRODUIT 
+ADD Catégorie VARCHAR2(20);
+
+
+
+
+
+
+ALTER TABLE ORDERS 
+ADD OrderDate DATE DEFAULT SYSDATE;
